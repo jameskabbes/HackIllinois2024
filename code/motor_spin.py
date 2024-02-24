@@ -1,5 +1,6 @@
 import numpy as np
 from src import motor as motor_module
+from src import motor_rotations
 import time
 
 if __name__ == '__main__':
@@ -39,13 +40,7 @@ if __name__ == '__main__':
     #     motor2.backward(speed)
     #     time.sleep(dt)
 
-    motor1.forward(1)
-    motor2.backward(1)
-    time.sleep(0.375)
-
-    # for speed in (speeds*10):
-    #     print(speed)
-    #     time.sleep(dt)
-
-    motor1.stop()
-    motor2.stop()
+    motor_rotations.rotate_ccw_90_deg(motor1, motor2)
+    motor_rotations.rotate_cw_90_deg(motor1, motor2)
+    motor_rotations.move_forward(motor1, motor2, 0.3)
+    motor_rotations.move_backward(motor1, motor2, 0.3)
