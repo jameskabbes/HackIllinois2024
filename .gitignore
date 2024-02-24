@@ -4,3 +4,5 @@ __pycache__/
 *.dylib
 yolov8n.pt
 venv
+__pycache__/
+

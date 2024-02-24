@@ -89,13 +89,6 @@ if __name__ == '__main__':
             motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
             #rotate_counter_clockwise(90) #move 90 towards left
             if (detectPersonInFrame(frame, ModelType.YOLOv8n) == 1):
-                led1 = led_module.LED({
-                "pin": 20
-                })
-
-                led2 = led_module.LED({
-                "pin": 21
-                })
                 left_motor.stop()
                 right_motor.stop()
                 led1.on()
