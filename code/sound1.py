@@ -1,3 +1,6 @@
+import video
+from video import detectPersonInFrame, liveObjDetection
+
 def move_in_square():
     global start_time
     moving_forward = True

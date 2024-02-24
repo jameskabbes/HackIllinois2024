@@ -1,5 +1,5 @@
 from functools import total_ordering
-from turtle import right
+from turtle import left, right
 from gpiozero import Motor, DistanceSensor
 from time import sleep
 import numpy as np
@@ -47,7 +47,7 @@ def move_in_square():
         stop()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
-        sleep(4)
+        sleep(2)
         led2.off()
 
 
@@ -65,29 +65,27 @@ def handle_obstacle(distance1, distance2):
 
     camera.capture()
     image_array = camera.image_array
-    person_detected = detectPersonInFrame(image_array[:, :, :3], ModelType.YOLOv8n)
+    person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
     if person_detected:
         # led1.on()
-        # led2.on()
+        led2.on()
         time.sleep(3)
         if distance1 == priority_distance:
 
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
-            time.sleep(3)
-            motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
-            motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
-            motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
+            #time.sleep(3)
+            motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
+            motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
         else:
             motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
-            time.sleep(3)
+            #time.sleep(3)
+            motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
-            motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
-            motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
         
         # led1.off()
-        # led2.off()
+        led2.off()
     else:
         if distance1 == priority_distance:
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
