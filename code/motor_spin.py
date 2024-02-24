@@ -4,6 +4,8 @@ from src import motor_rotations
 from src import led as led_module
 import time
 
+MOTOR_OFFSET = 0.65
+
 if __name__ == '__main__':
 
     left_motor = motor_module.Motor({
@@ -55,8 +57,8 @@ if __name__ == '__main__':
     time.sleep(dt)
     led1.off()
     led2.on()
-    motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=0.65)
+    motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=1*MOTOR_OFFSET)
     time.sleep(dt)
-    motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=0.65)
+    motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=1*MOTOR_OFFSET)
     time.sleep(dt)
     led2.off()
