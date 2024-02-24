@@ -40,8 +40,6 @@ if __name__ == '__main__':
     time.sleep(dt)
 
     while True:
-        motor_rotations.move_forward(left_motor, right_motor, 2)
-        motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
     # motor_rotations.move_forward(left_motor, right_motor, 2)
     # motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
     # motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
@@ -49,8 +47,10 @@ if __name__ == '__main__':
     # motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
     # motor_rotations.move_forward(left_motor, right_motor, 2)
         try:
-            pass
+        motor_rotations.move_forward(left_motor, right_motor, 2)
+        motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         except KeyboardInterrupt:
+            print("here")
             left_motor.stop()
             right_motor.stop()
             exit(0)
