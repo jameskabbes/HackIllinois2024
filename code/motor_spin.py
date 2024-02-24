@@ -54,6 +54,7 @@ if __name__ == '__main__':
 
     for frac in fractions:
         print(frac)
+        frac = 0.65
         motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=1*frac)
         # time.sleep(dt)
         motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=1*frac)
