@@ -7,7 +7,7 @@ if __name__ == '__main__':
     sample_hz = 10
 
     camera = camera_module.Camera({
-        "show_preview": True
+        "show_preview": False
     })
     start_time = time.time()
 
