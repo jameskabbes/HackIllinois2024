@@ -4,7 +4,7 @@ from src import motor_rotations
 from src import led as led_module
 import time
 
-MOTOR_OFFSET = 1
+MOTOR_OFFSET = 0.9
 
 if __name__ == '__main__':
 
