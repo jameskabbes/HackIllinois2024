@@ -50,7 +50,7 @@ if __name__ == '__main__':
     #     motor1.backward(speed)
     #     motor2.backward(speed)
     #     time.sleep(dt)
-    fractions = np.linspace(0.5, 2, 16)
+    fractions = np.linspace(0.5, 2, 2)
 
     for frac in fractions:
         print(frac)
