@@ -41,11 +41,11 @@ if __name__ == '__main__':
 
     motor1.forward(1)
     motor2.backward(1)
-    time.sleep(dt)
+    time.sleep(0.425)
 
-    for speed in speeds:
-        print(speed)
-        time.sleep(dt)
+    # for speed in (speeds*10):
+    #     print(speed)
+    #     time.sleep(dt)
 
     motor1.stop()
     motor2.stop()
