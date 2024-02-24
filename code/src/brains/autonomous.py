@@ -42,6 +42,7 @@ class Brain(base.Brain):
 
         # image of the camera
         image = self.camera.image_array
+        print(image)
         obstacle_front = self.is_obstacle_too_close(image); 
 
         return obstacle_left, obstacle_right, obstacle_front
