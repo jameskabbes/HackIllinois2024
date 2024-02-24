@@ -4,7 +4,7 @@ from src import motor_rotations
 from src import led as led_module
 import time
 
-MOTOR_OFFSET = 0.65
+MOTOR_OFFSET = 0.7
 
 if __name__ == '__main__':
 
@@ -52,7 +52,8 @@ if __name__ == '__main__':
     #     time.sleep(dt)
     fractions = np.linspace(0.5, 2, 2)
 
-    for _ in range(20):
+    for i in range(20):
+        print(i)
         motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
         motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
         # motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
