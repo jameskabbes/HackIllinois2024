@@ -59,16 +59,16 @@ def handle_obstacle(distance1, distance2):
     image_array = camera.image_array
     person_detected = detectPersonInFrame(image_array[:, :, :3], ModelType.YOLOv8n)
     if person_detected:
-        led1.turn_on()
-        led2.turn_on()
+        led1.on()
+        led2.on()
         time.sleep(3)
         if distance1 == priority_distance:
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         else:
             motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
         
-        led1.turn_off()
-        led2.turn_off()
+        led1.off()
+        led2.off()
     else:
         if distance1 == priority_distance:
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
