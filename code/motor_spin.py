@@ -6,7 +6,7 @@ import time
 
 if __name__ == '__main__':
 
-    motor1 = motor_module.Motor({
+    left_motor = motor_module.Motor({
         "pins": {
             "speed": 13,
             "control1": 5,
@@ -14,7 +14,7 @@ if __name__ == '__main__':
         }
     })
 
-    motor2 = motor_module.Motor({
+    right_motor = motor_module.Motor({
         "pins": {
             "speed": 12,
             "control1": 7,
@@ -33,8 +33,8 @@ if __name__ == '__main__':
     speeds = list(np.linspace(0, 1, 11)) + list(np.linspace(0.9, 0, 10))
 
     dt = 0.25
-    motor1.stop()
-    motor2.stop()
+    left_motor.stop()
+    right_motor.stop()
     time.sleep(dt)
 
     # for speed in speeds:
@@ -49,14 +49,14 @@ if __name__ == '__main__':
     #     motor2.backward(speed)
     #     time.sleep(dt)
     led1.on()
-    motor_rotations.rotate_ccw_90_deg(motor1, motor2)
+    motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
     time.sleep(dt)
-    motor_rotations.rotate_cw_90_deg(motor1, motor2)
+    motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
     time.sleep(dt)
     led1.off()
     led2.on()
-    motor_rotations.move_forward(motor1, motor2, 5, s1=1, s2=0)
+    motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=0.7)
     time.sleep(dt)
-    motor_rotations.move_backward(motor1, motor2, 5, s1=0, s2=1)
+    motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=0.7)
     time.sleep(dt)
     led2.off()
