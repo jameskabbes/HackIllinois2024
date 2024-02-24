@@ -12,7 +12,7 @@ if __name__ == '__main__':
             "control1": 5,
             "control2": 6
         }
-    }, 5)
+    })
 
     motor2 = motor_module.Motor({
         "pins": {
@@ -20,7 +20,7 @@ if __name__ == '__main__':
             "control1": 7,
             "control2": 8
         },
-    }, 1)
+    })
 
     led1 = led_module.LED({
         "pin": 20

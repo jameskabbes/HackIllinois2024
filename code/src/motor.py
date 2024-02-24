@@ -19,14 +19,13 @@ class Motor:
     control1: LED
     control2: LED
 
-    MAX_SPEED: float = 1.0
+    MAX_SPEED: float = 10.0
 
-    def __init__(self, config: Config, m_speed):
+    def __init__(self, config: Config):
 
         self.pwm = PWMLED(config['pins']['speed'])
         self.control1 = LED({'pin': config['pins']['control1']})
         self.control2 = LED({'pin': config['pins']['control2']})
-        self.MAX_SPEED = m_speed
 
     def stop(self) -> None:
         """Stop the motor"""
