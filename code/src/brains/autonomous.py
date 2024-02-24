@@ -17,9 +17,8 @@ class Brain(base.Brain):
     def is_obstacle_too_close(image, threshold_area=0.1):
         if image is None:
             raise ValueError("Image is None")
-        if image.dtype != 'uint8':
-            raise TypeError("Image dtype is not 'uint8'")
 
+        print(image)
         # Convert the image to grayscale
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
