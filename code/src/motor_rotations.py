@@ -20,17 +20,17 @@ def rotate_cw_90_deg(m1, m2):
     m2.stop()
     time.sleep(DT)
 
-def move_forward(m1, m2, run_time, speed=1):
-    m1.forward(speed)
-    m2.forward(speed)
+def move_forward(m1, m2, run_time, s1=1, s2=1):
+    m1.forward(s1)
+    m2.forward(s2)
     time.sleep(run_time)
     m1.stop()
     m2.stop()
     time.sleep(DT)
 
-def move_backward(m1, m2, run_time, speed=1):
-    m1.backward(speed)
-    m2.backward(speed)
+def move_backward(m1, m2, run_time, s1=1, s2=1):
+    m1.backward(s1)
+    m2.backward(s2)
     time.sleep(run_time)
     m1.stop()
     m2.stop()
