@@ -42,6 +42,7 @@ John Deere | HackIllinois
   - [Find IP Address](#find-ip-address)
   - [Other Tips](#other-tips)
     - [Connecting to Wifi](#connecting-to-wifi)
+    - [Connecting to IllinoisNet_Guest](#connecting-to-illinoisnet_guest)
 
 - [Assembly](#assembly)
 - [Wiring and Testing](#wiring-and-testing)
@@ -330,6 +331,38 @@ network={
 `sudo systemctl restart networking`
 
 <br>
+
+### Connecting to IllinoisNet_Guest
+
+**1. Go to https://go.illinois.edu/illinoisnetguest and log in, click on "Register a New Device"**
+
+**2. On your pi type in `ifconfig` and under `wlan0` copy the number next to `ether`, that is the mac address for the device registration**
+
+<p align="center">
+  <img
+    src="./static/images/pi_ifconfig.png"
+    alt="Assembly - Chassis"
+    width="500"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="./static/images/illinoisnet_guest_device_registration.png"
+    alt="Assembly - Chassis"
+    width="500"
+  />
+</p>
+
+**3. On the raspberry pi type in `sudo nmtui -> activate a new connection ->` connect to IllinoisNet_Guest**
+
+Now the Pi is connected to the internet.
+
+**4. on the pi enter the command `ifconfig` again and under `wlan0` find the number next to `inet`**
+
+**5. `ssh pi@<inet>` from any device connected to IllinoisNet**
+
+Just like that you've done it. Multiple people can ssh in at once.
 
 # Assembly
 
