@@ -31,18 +31,23 @@ def move_in_square():
             distance1 = distance_sensor1.distance
             distance2 = distance_sensor2.distance
 
-            if 0 < distance1 < 0.8 or 0 < distance2 < 0.8:
+            if 0 < distance1 < 0.2 or 0 < distance2 < 0.2:
+                led1.on()
                 temp_start_time = time.time()
                 handle_obstacle(distance1, distance2)
                 start_time -= (time.time() - temp_start_time)
-                
+            
+            led1.off()
             left_motor.forward(1)
             right_motor.forward(1*MOTOR_OFFSET)
             sleep(DT)
-            
+        
+        led2.on()
         stop()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
+        sleep(4)
+        led2.off()
 
 
 def stop():
@@ -61,16 +66,16 @@ def handle_obstacle(distance1, distance2):
     image_array = camera.image_array
     person_detected = detectPersonInFrame(image_array[:, :, :3], ModelType.YOLOv8n)
     if person_detected:
-        led1.on()
-        led2.on()
+        # led1.on()
+        # led2.on()
         time.sleep(3)
         if distance1 == priority_distance:
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         else:
             motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
         
-        led1.off()
-        led2.off()
+        # led1.off()
+        # led2.off()
     else:
         if distance1 == priority_distance:
             motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
