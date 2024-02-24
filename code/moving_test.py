@@ -48,3 +48,9 @@ if __name__ == '__main__':
     # motor_rotations.move_forward(left_motor, right_motor, 2)
     # motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
     # motor_rotations.move_forward(left_motor, right_motor, 2)
+        try:
+            pass
+        except KeyboardInterrupt:
+            left_motor.stop()
+            right_motor.stop()
+            exit(0)
