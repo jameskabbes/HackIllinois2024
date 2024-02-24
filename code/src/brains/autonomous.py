@@ -46,7 +46,7 @@ class Brain(base.Brain):
 
         # if anything is detected by the sensors, stop the car
         stop = False
-        obstacle_left, obstacle_right, obstacle_front = self.detectObstacles(self)
+        obstacle_left, obstacle_right, obstacle_front = self.detectObstacles()
 
         if obstacle_right and not obstacle_left: 
             #turn left
