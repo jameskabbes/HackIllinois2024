@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     while True:
         left_motor.forward(1)
-        right_motor.forward(0.6)
+        right_motor.forward(1)
         camera.capture()
         image_array = camera.image_array
         #ret, frame = cap.read()
