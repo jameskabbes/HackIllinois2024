@@ -12,7 +12,7 @@ import cv2
 from src import camera as camera_module
 
 
-MOTOR_OFFSET = 0.65
+MOTOR_OFFSET = 1
 
 #first we need to start the timer at the start of the program
 #the normal behaviour is that the robot will move forward for 10 seconds and then take a 90 degree turn and it will keep doing this so it moves in a square
@@ -30,13 +30,13 @@ def move_in_square():
             distance1 = distance_sensor1.distance
             distance2 = distance_sensor2.distance
 
-            if 0 < distance1 < 1 or 0 < distance2 < 1:
+            if 0 < distance1 < 0.8 or 0 < distance2 < 0.8:
                 temp_start_time = time.time()
                 handle_obstacle(distance1, distance2)
                 start_time -= (time.time() - temp_start_time)
                 
             left_motor.forward(1)
-            right_motor.forward(0.6)
+            right_motor.forward(1*MOTOR_OFFSET)
             
         stop()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
