@@ -11,7 +11,8 @@ if __name__ == '__main__':
             "speed": 13,
             "control1": 5,
             "control2": 6
-        }
+        },
+        "m_speed":5
     })
 
     motor2 = motor_module.Motor({
@@ -19,7 +20,8 @@ if __name__ == '__main__':
             "speed": 12,
             "control1": 7,
             "control2": 8
-        }
+        },
+        "m_speed":1
     })
 
     led1 = led_module.LED({
