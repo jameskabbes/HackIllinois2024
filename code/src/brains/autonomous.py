@@ -1,5 +1,6 @@
 from . import base
 import cv2
+import numpy as np
 
 
 class Config(base.Config):
@@ -14,7 +15,8 @@ class Brain(base.Brain):
         super().__init__(config, *arg)
 
     def is_obstacle_too_close(image, threshold_area=0.1):
-    # Convert the image to grayscale
+        image = np.array(image)
+        # Convert the image to grayscale
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
         # Apply edge detection or thresholding to identify potential obstacles
