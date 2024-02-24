@@ -43,7 +43,7 @@ vehicle_config = config['vehicle']
 vehicle = vehicle_module.Vehicle(vehicle_config)
 
 # Load Brain
-brain_type = 'human_driver'
+brain_type = 'autonomous'
 
 # merge the base brain config with the brain-specific config, giving priority to the brain-specific config
 brain_config = {**config['brains']['base'], **config['brains'][brain_type]}
