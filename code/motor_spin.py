@@ -42,7 +42,8 @@ if __name__ == '__main__':
     motor1.forward(0.3)
     motor2.backward(0.3)
 
-    for _ in range(50):
+    for i in range(50):
+        print('Slept total of {0} seconds'.format((i+1)*dt))
         time.sleep(dt)
 
     motor1.stop()
