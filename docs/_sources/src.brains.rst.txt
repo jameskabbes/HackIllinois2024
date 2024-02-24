@@ -1,0 +1,37 @@
+src.brains package
+==================
+
+Submodules
+----------
+
+src.brains.autonomous module
+----------------------------
+
+.. automodule:: src.brains.autonomous
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.brains.base module
+----------------------
+
+.. automodule:: src.brains.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.brains.human\_driver module
+-------------------------------
+
+.. automodule:: src.brains.human_driver
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src.brains
+   :members:
+   :undoc-members:
+   :show-inheritance:

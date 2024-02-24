@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src package &mdash; hackil_rpi_car 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.brains package" href="src.brains.html" />
+    <link rel="prev" title="main module" href="main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hackil_rpi_car
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">code</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">src package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html">src.brains package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.camera">src.camera module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.camera.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.camera.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.distance_sensor">src.distance_sensor module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.distance_sensor.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.distance_sensor.DistanceSensor"><code class="docutils literal notranslate"><span class="pre">DistanceSensor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.distance_sensor.PinsConfig"><code class="docutils literal notranslate"><span class="pre">PinsConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.led">src.led module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.led.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.led.LED"><code class="docutils literal notranslate"><span class="pre">LED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.motor">src.motor module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.motor.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.motor.Motor"><code class="docutils literal notranslate"><span class="pre">Motor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.motor.PinsConfig"><code class="docutils literal notranslate"><span class="pre">PinsConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.params">src.params module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.switch">src.switch module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.switch.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.switch.Switch"><code class="docutils literal notranslate"><span class="pre">Switch</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.vehicle">src.vehicle module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.vehicle.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.vehicle.MotorsConfig"><code class="docutils literal notranslate"><span class="pre">MotorsConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.vehicle.Vehicle"><code class="docutils literal notranslate"><span class="pre">Vehicle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_camera.html">test_camera module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_distance_sensor.html">test_distance_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_led.html">test_led module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_motor.html">test_motor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_switch.html">test_switch module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_vehicle.html">test_vehicle module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hackil_rpi_car</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">code</a></li>
+      <li class="breadcrumb-item active">src package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-package">
+<h1>src package<a class="headerlink" href="#src-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src.brains.html">src.brains package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src.brains.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.brains.html#module-src.brains.autonomous">src.brains.autonomous module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.autonomous.Brain"><code class="docutils literal notranslate"><span class="pre">Brain</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.autonomous.Brain.logic"><code class="docutils literal notranslate"><span class="pre">Brain.logic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.autonomous.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.autonomous.Config.sample_hz"><code class="docutils literal notranslate"><span class="pre">Config.sample_hz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src.brains.html#module-src.brains.base">src.brains.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.base.Brain"><code class="docutils literal notranslate"><span class="pre">Brain</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.camera"><code class="docutils literal notranslate"><span class="pre">Brain.camera</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.distance_sensors"><code class="docutils literal notranslate"><span class="pre">Brain.distance_sensors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.leds"><code class="docutils literal notranslate"><span class="pre">Brain.leds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.logic"><code class="docutils literal notranslate"><span class="pre">Brain.logic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.loop_counter"><code class="docutils literal notranslate"><span class="pre">Brain.loop_counter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.run"><code class="docutils literal notranslate"><span class="pre">Brain.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.running"><code class="docutils literal notranslate"><span class="pre">Brain.running</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.sample_hz"><code class="docutils literal notranslate"><span class="pre">Brain.sample_hz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.switches"><code class="docutils literal notranslate"><span class="pre">Brain.switches</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Brain.vehicle"><code class="docutils literal notranslate"><span class="pre">Brain.vehicle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.base.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.base.Config.sample_hz"><code class="docutils literal notranslate"><span class="pre">Config.sample_hz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src.brains.html#module-src.brains.human_driver">src.brains.human_driver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.human_driver.Brain"><code class="docutils literal notranslate"><span class="pre">Brain</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.human_driver.Brain.get_input"><code class="docutils literal notranslate"><span class="pre">Brain.get_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.human_driver.Brain.logic"><code class="docutils literal notranslate"><span class="pre">Brain.logic()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.human_driver.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.human_driver.Config.sample_hz"><code class="docutils literal notranslate"><span class="pre">Config.sample_hz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src.brains.html#module-src.brains">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.brains.html#src.brains.ModuleTypes"><code class="docutils literal notranslate"><span class="pre">ModuleTypes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.ModuleTypes.autonomous"><code class="docutils literal notranslate"><span class="pre">ModuleTypes.autonomous</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.ModuleTypes.base"><code class="docutils literal notranslate"><span class="pre">ModuleTypes.base</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.brains.html#src.brains.ModuleTypes.human_driver"><code class="docutils literal notranslate"><span class="pre">ModuleTypes.human_driver</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.camera">
+<span id="src-camera-module"></span><h2>src.camera module<a class="headerlink" href="#module-src.camera" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.camera.Camera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.camera.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.camera.Config" title="src.camera.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/camera.html#Camera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.camera.Camera" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.camera.Camera.cam">
+<span class="sig-name descname"><span class="pre">cam</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">picamera2.Picamera2</span></em><a class="headerlink" href="#src.camera.Camera.cam" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.camera.Camera.capture">
+<span class="sig-name descname"><span class="pre">capture</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/camera.html#Camera.capture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.camera.Camera.capture" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.camera.Camera.image_array">
+<span class="sig-name descname"><span class="pre">image_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#src.camera.Camera.image_array" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.camera.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.camera.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/src/camera.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.camera.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.camera.Config.show_preview">
+<span class="sig-name descname"><span class="pre">show_preview</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#src.camera.Config.show_preview" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.distance_sensor">
+<span id="src-distance-sensor-module"></span><h2>src.distance_sensor module<a class="headerlink" href="#module-src.distance_sensor" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.distance_sensor.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.distance_sensor.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/src/distance_sensor.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.distance_sensor.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.distance_sensor.Config.pins">
+<span class="sig-name descname"><span class="pre">pins</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.distance_sensor.PinsConfig" title="src.distance_sensor.PinsConfig"><span class="pre">PinsConfig</span></a></em><a class="headerlink" href="#src.distance_sensor.Config.pins" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.distance_sensor.DistanceSensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.distance_sensor.</span></span><span class="sig-name descname"><span class="pre">DistanceSensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/distance_sensor.html#DistanceSensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.distance_sensor.DistanceSensor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistanceSensor</span></code></p>
+<p>child class of gpiozero.InputDevice, main functionality is instance property ‘distance’</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.distance_sensor.PinsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.distance_sensor.</span></span><span class="sig-name descname"><span class="pre">PinsConfig</span></span><a class="reference internal" href="_modules/src/distance_sensor.html#PinsConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.distance_sensor.PinsConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.distance_sensor.PinsConfig.echo">
+<span class="sig-name descname"><span class="pre">echo</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.distance_sensor.PinsConfig.echo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.distance_sensor.PinsConfig.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.distance_sensor.PinsConfig.trigger" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.led">
+<span id="src-led-module"></span><h2>src.led module<a class="headerlink" href="#module-src.led" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.led.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.led.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/src/led.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.led.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.led.Config.pin">
+<span class="sig-name descname"><span class="pre">pin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.led.Config.pin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.led.LED">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.led.</span></span><span class="sig-name descname"><span class="pre">LED</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.led.Config" title="src.led.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/led.html#LED"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.led.LED" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.led.LED.off">
+<span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/led.html#LED.off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.led.LED.off" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.led.LED.on">
+<span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/led.html#LED.on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.led.LED.on" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.led.LED.pin">
+<span class="sig-name descname"><span class="pre">pin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.led.LED.pin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.motor">
+<span id="src-motor-module"></span><h2>src.motor module<a class="headerlink" href="#module-src.motor" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.motor.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.motor.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/src/motor.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.Config.pins">
+<span class="sig-name descname"><span class="pre">pins</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.motor.PinsConfig" title="src.motor.PinsConfig"><span class="pre">PinsConfig</span></a></em><a class="headerlink" href="#src.motor.Config.pins" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.motor.Motor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.motor.</span></span><span class="sig-name descname"><span class="pre">Motor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.motor.Config" title="src.motor.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/motor.html#Motor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.Motor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.Motor.MAX_SPEED">
+<span class="sig-name descname"><span class="pre">MAX_SPEED</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="headerlink" href="#src.motor.Motor.MAX_SPEED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.motor.Motor.backward">
+<span class="sig-name descname"><span class="pre">backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/motor.html#Motor.backward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.Motor.backward" title="Link to this definition"></a></dt>
+<dd><p>Spin the motor backward at a given speed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.Motor.control1">
+<span class="sig-name descname"><span class="pre">control1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.led.LED" title="src.led.LED"><span class="pre">LED</span></a></em><a class="headerlink" href="#src.motor.Motor.control1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.Motor.control2">
+<span class="sig-name descname"><span class="pre">control2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.led.LED" title="src.led.LED"><span class="pre">LED</span></a></em><a class="headerlink" href="#src.motor.Motor.control2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.motor.Motor.drive">
+<span class="sig-name descname"><span class="pre">drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/motor.html#Motor.drive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.Motor.drive" title="Link to this definition"></a></dt>
+<dd><p>Spin the motor at a given speed and direction</p>
+<p>speed: float in [0, 1]
+direction: True for forward, False for backwards</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.motor.Motor.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/motor.html#Motor.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.Motor.forward" title="Link to this definition"></a></dt>
+<dd><p>Spin the motor forward at a given speed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.Motor.pwm">
+<span class="sig-name descname"><span class="pre">pwm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PWMLED</span></em><a class="headerlink" href="#src.motor.Motor.pwm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.motor.Motor.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/motor.html#Motor.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.Motor.stop" title="Link to this definition"></a></dt>
+<dd><p>Stop the motor</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.motor.PinsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.motor.</span></span><span class="sig-name descname"><span class="pre">PinsConfig</span></span><a class="reference internal" href="_modules/src/motor.html#PinsConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.motor.PinsConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.PinsConfig.control1">
+<span class="sig-name descname"><span class="pre">control1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.motor.PinsConfig.control1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.PinsConfig.control2">
+<span class="sig-name descname"><span class="pre">control2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.motor.PinsConfig.control2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.motor.PinsConfig.speed">
+<span class="sig-name descname"><span class="pre">speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.motor.PinsConfig.speed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.params">
+<span id="src-params-module"></span><h2>src.params module<a class="headerlink" href="#module-src.params" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.switch">
+<span id="src-switch-module"></span><h2>src.switch module<a class="headerlink" href="#module-src.switch" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.switch.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.switch.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/src/switch.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.switch.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.switch.Config.pin">
+<span class="sig-name descname"><span class="pre">pin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.switch.Config.pin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.switch.Switch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.switch.</span></span><span class="sig-name descname"><span class="pre">Switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/switch.html#Switch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.switch.Switch" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Button</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.switch.Switch.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#src.switch.Switch.state" title="Link to this definition"></a></dt>
+<dd><p>child class of gpiozero.Button</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.switch.Switch.switch_state">
+<span class="sig-name descname"><span class="pre">switch_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/switch.html#Switch.switch_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.switch.Switch.switch_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.vehicle">
+<span id="src-vehicle-module"></span><h2>src.vehicle module<a class="headerlink" href="#module-src.vehicle" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.vehicle.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.vehicle.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/src/vehicle.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.vehicle.Config.motors">
+<span class="sig-name descname"><span class="pre">motors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.vehicle.MotorsConfig" title="src.vehicle.MotorsConfig"><span class="pre">MotorsConfig</span></a></em><a class="headerlink" href="#src.vehicle.Config.motors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.vehicle.MotorsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.vehicle.</span></span><span class="sig-name descname"><span class="pre">MotorsConfig</span></span><a class="reference internal" href="_modules/src/vehicle.html#MotorsConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.MotorsConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.vehicle.MotorsConfig.left">
+<span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.motor.Config" title="src.motor.Config"><span class="pre">Config</span></a></em><a class="headerlink" href="#src.vehicle.MotorsConfig.left" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.vehicle.MotorsConfig.right">
+<span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.motor.Config" title="src.motor.Config"><span class="pre">Config</span></a></em><a class="headerlink" href="#src.vehicle.MotorsConfig.right" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.vehicle.</span></span><span class="sig-name descname"><span class="pre">Vehicle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.vehicle.Config" title="src.vehicle.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.drive">
+<span class="sig-name descname"><span class="pre">drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle.drive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle.drive" title="Link to this definition"></a></dt>
+<dd><p>Control each motor’s speed and direction independently</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.drive_backward">
+<span class="sig-name descname"><span class="pre">drive_backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle.drive_backward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle.drive_backward" title="Link to this definition"></a></dt>
+<dd><p>turn both motors backward at a given speed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.drive_forward">
+<span class="sig-name descname"><span class="pre">drive_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle.drive_forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle.drive_forward" title="Link to this definition"></a></dt>
+<dd><p>turn both motors forward at a given speed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.left_motor">
+<span class="sig-name descname"><span class="pre">left_motor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.motor.Motor" title="src.motor.Motor"><span class="pre">Motor</span></a></em><a class="headerlink" href="#src.vehicle.Vehicle.left_motor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.pivot_left">
+<span class="sig-name descname"><span class="pre">pivot_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle.pivot_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle.pivot_left" title="Link to this definition"></a></dt>
+<dd><p>at the same speed, drive the left motor backward, and the right motor forward</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.pivot_right">
+<span class="sig-name descname"><span class="pre">pivot_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle.pivot_right"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle.pivot_right" title="Link to this definition"></a></dt>
+<dd><p>at the same speed, drive the left motor forward, and the right motor backward</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.right_motor">
+<span class="sig-name descname"><span class="pre">right_motor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.motor.Motor" title="src.motor.Motor"><span class="pre">Motor</span></a></em><a class="headerlink" href="#src.vehicle.Vehicle.right_motor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.vehicle.Vehicle.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/vehicle.html#Vehicle.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.vehicle.Vehicle.stop" title="Link to this definition"></a></dt>
+<dd><p>stop both motors</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main.html" class="btn btn-neutral float-left" title="main module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src.brains.html" class="btn btn-neutral float-right" title="src.brains package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+test\_distance\_sensor module
+=============================
+
+.. automodule:: test_distance_sensor
+   :members:
+   :undoc-members:
+   :show-inheritance:

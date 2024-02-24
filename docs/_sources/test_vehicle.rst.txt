@@ -1,0 +1,7 @@
+test\_vehicle module
+====================
+
+.. automodule:: test_vehicle
+   :members:
+   :undoc-members:
+   :show-inheritance:

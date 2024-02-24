@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Deere | HackIllinois 2024 &mdash; hackil_rpi_car 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="code" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            hackil_rpi_car
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">hackil_rpi_car</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">John Deere | HackIllinois 2024</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="john-deere-hackillinois-2024">
+<h1>John Deere | HackIllinois 2024<a class="headerlink" href="#john-deere-hackillinois-2024" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Starter code for this project in found in the <code class="docutils literal notranslate"><span class="pre">HackIllinois2024/code</span></code> folder of the repository. Follow along below.</p>
+</section>
+<section id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Setup one system on your vehicle at a time. Test each with <code class="docutils literal notranslate"><span class="pre">test_&lt;system&gt;.py</span></code>. For example, connect a motor to the raspberry pi, and run <code class="docutils literal notranslate"><span class="pre">test_motor.py</span></code>.</p></li>
+<li><p>Once your systems have been tested and plugged in, run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> where <code class="docutils literal notranslate"><span class="pre">brain_type</span> <span class="pre">=</span> <span class="pre">'human_driver'</span></code> to test drive your vehicle.</p></li>
+<li><p>Design the logic for your autonomous vehicle by writing instructitons into your autonomous brain’s <code class="docutils literal notranslate"><span class="pre">logic()</span></code> method.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> where <code class="docutils literal notranslate"><span class="pre">brain_type</span> <span class="pre">=</span> <span class="pre">'autonomous'</span></code> to test your autonomous brain’s functionality.</p></li>
+</ol>
+</section>
+<section id="main-py">
+<h2><code class="docutils literal notranslate"><span class="pre">main.py</span></code><a class="headerlink" href="#main-py" title="Link to this heading"></a></h2>
+<p>The main python script for running the vehicle. This script does the following:</p>
+<ol class="arabic simple">
+<li><p>Loads the <code class="docutils literal notranslate"><span class="pre">src/config.json</span></code> file</p></li>
+<li><p>Initalize supporting classes</p>
+<ul class="simple">
+<li><p>Initialize camera</p></li>
+<li><p>Initialize distance sensors</p></li>
+<li><p>Initialize LEDs</p></li>
+<li><p>Initialize switches</p></li>
+<li><p>Initialize vehicle</p></li>
+</ul>
+</li>
+<li><p>Initalize a brain instance, from your given <code class="docutils literal notranslate"><span class="pre">brain_type</span></code></p></li>
+<li><p>Run the brain instance</p></li>
+</ol>
+</section>
+<section id="test-scripts">
+<h2>Test Scripts<a class="headerlink" href="#test-scripts" title="Link to this heading"></a></h2>
+<p>Each of the test scripts below contains functionality used for testing each individual system. Run tests from your raspberry pi with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">test_&lt;system&gt;.py</span></code>.</p>
+<section id="test-camera-py">
+<h3><code class="docutils literal notranslate"><span class="pre">test_camera.py</span></code><a class="headerlink" href="#test-camera-py" title="Link to this heading"></a></h3>
+<p>Assure that your camera is capturing data with this module. A successful camera setup on your raspberry pi should show an image array being printed in each loop.</p>
+</section>
+<section id="test-distance-sensor-py">
+<h3><code class="docutils literal notranslate"><span class="pre">test_distance_sensor.py</span></code><a class="headerlink" href="#test-distance-sensor-py" title="Link to this heading"></a></h3>
+<p>Assure that your distance sensors are operating properly with this module. A successful setup enables a sensor to detect how far away an object is. Try putting your hand in front of the sensor and moving it closer and farther away.</p>
+</section>
+<section id="test-led-py">
+<h3><code class="docutils literal notranslate"><span class="pre">test_led.py</span></code><a class="headerlink" href="#test-led-py" title="Link to this heading"></a></h3>
+<p>Test out an LED’s functionality by cycling its <code class="docutils literal notranslate"><span class="pre">on()</span></code> and <code class="docutils literal notranslate"><span class="pre">off()</span></code> methods.</p>
+</section>
+<section id="test-motor-py">
+<h3><code class="docutils literal notranslate"><span class="pre">test_motor.py</span></code><a class="headerlink" href="#test-motor-py" title="Link to this heading"></a></h3>
+<p>The H-Bridge and one motor must be connected to run this script. Test out the functionality of one motor as it cycles through various speeds and both directions.</p>
+</section>
+<section id="test-switch-py">
+<h3><code class="docutils literal notranslate"><span class="pre">test_switch.py</span></code><a class="headerlink" href="#test-switch-py" title="Link to this heading"></a></h3>
+<p>Flip the switch on and off while executing this script. Note whether the print statements reflect the state of the switch.</p>
+</section>
+<section id="test-vehicle-py">
+<h3><code class="docutils literal notranslate"><span class="pre">test_vehicle.py</span></code><a class="headerlink" href="#test-vehicle-py" title="Link to this heading"></a></h3>
+<p>The H-Bridge and both motors must be connected to run this script. Cycles through various drive functions of the vehicle.</p>
+</section>
+</section>
+<section id="src-package">
+<h2><code class="docutils literal notranslate"><span class="pre">src</span></code> package<a class="headerlink" href="#src-package" title="Link to this heading"></a></h2>
+<p>Modules to be imported by scripts in the <code class="docutils literal notranslate"><span class="pre">HackIllinois/code</span></code> directory</p>
+<section id="brains">
+<h3>brains<a class="headerlink" href="#brains" title="Link to this heading"></a></h3>
+<p>Contains modules that contain <cite>Brain</cite> classes, each with different functionality.</p>
+<section id="autonomous">
+<h4>autonomous<a class="headerlink" href="#autonomous" title="Link to this heading"></a></h4>
+<p>The autonomous brain module. Designed to use information from sensors to make decisions on how to drive.</p>
+</section>
+<section id="base">
+<h4>base<a class="headerlink" href="#base" title="Link to this heading"></a></h4>
+<p>The base brain module. Contains classes to be inherited by child modules.</p>
+</section>
+<section id="human-driver">
+<h4>human_driver<a class="headerlink" href="#human-driver" title="Link to this heading"></a></h4>
+<p>The human_driver brain module. Uses keyboard input to steer the vehicle. Useful for testing purposes.</p>
+</section>
+</section>
+<section id="camera">
+<h3>camera<a class="headerlink" href="#camera" title="Link to this heading"></a></h3>
+<p>Module providing functionality on access the raspberry pi’s camera module.</p>
+</section>
+<section id="config-json">
+<h3>config.json<a class="headerlink" href="#config-json" title="Link to this heading"></a></h3>
+<p>Pin layout and other configuration settings.</p>
+</section>
+<section id="distance-sensor">
+<h3>distance_sensor<a class="headerlink" href="#distance-sensor" title="Link to this heading"></a></h3>
+<p>Module providing functionality for ultrasonic distance sensors.</p>
+</section>
+<section id="motor">
+<h3>motor<a class="headerlink" href="#motor" title="Link to this heading"></a></h3>
+<p>Module providing functionality for controlling an individual motor’s speed and direction.</p>
+</section>
+<section id="params">
+<h3>params<a class="headerlink" href="#params" title="Link to this heading"></a></h3>
+<p>Module containing other Python variables not contained in <code class="docutils literal notranslate"><span class="pre">config.json</span></code></p>
+</section>
+<section id="vehicle">
+<h3>vehicle<a class="headerlink" href="#vehicle" title="Link to this heading"></a></h3>
+<p>Module containing functionality for controlling a vehicle, that is, a left and a right motor.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.html">src package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_camera.html">test_camera module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_distance_sensor.html">test_distance_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_led.html">test_led module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_motor.html">test_motor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_switch.html">test_switch module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_vehicle.html">test_vehicle module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-right" title="code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

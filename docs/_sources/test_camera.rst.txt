@@ -1,0 +1,7 @@
+test\_camera module
+===================
+
+.. automodule:: test_camera
+   :members:
+   :undoc-members:
+   :show-inheritance:

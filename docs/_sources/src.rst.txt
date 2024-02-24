@@ -1,0 +1,77 @@
+src package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.brains
+
+Submodules
+----------
+
+src.camera module
+-----------------
+
+.. automodule:: src.camera
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.distance\_sensor module
+---------------------------
+
+.. automodule:: src.distance_sensor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.led module
+--------------
+
+.. automodule:: src.led
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.motor module
+----------------
+
+.. automodule:: src.motor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.params module
+-----------------
+
+.. automodule:: src.params
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.switch module
+-----------------
+
+.. automodule:: src.switch
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.vehicle module
+------------------
+
+.. automodule:: src.vehicle
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: src
+   :members:
+   :undoc-members:
+   :show-inheritance:
