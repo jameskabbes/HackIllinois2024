@@ -52,12 +52,10 @@ if __name__ == '__main__':
     #     time.sleep(dt)
     fractions = np.linspace(0.5, 2, 2)
 
-    for frac in fractions:
-        print(frac)
-        frac = 0.65
-        motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=1*frac)
-        # time.sleep(dt)
-        motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=1*frac)
+    for _ in range(20):
+        motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=1*MOTOR_OFFSET)
+        motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
+        motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=1*MOTOR_OFFSET)
         time.sleep(dt)
 
     # led1.on()
