@@ -37,9 +37,8 @@ class Brain(base.Brain):
 
         # image of the camera
         image = self.camera.image_array
+        obstacle_front = self.is_obstacle_too_close(image); 
 
-
-        obstacle_front = False; 
         return obstacle_left, obstacle_right, obstacle_front
 
     def logic(self):
