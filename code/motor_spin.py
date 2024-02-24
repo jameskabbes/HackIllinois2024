@@ -55,7 +55,7 @@ if __name__ == '__main__':
     for _ in range(20):
         motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
         motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
-        motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
+        # motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
         time.sleep(dt)
 
     # led1.on()
