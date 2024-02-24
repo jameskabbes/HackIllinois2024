@@ -14,8 +14,8 @@ class Brain(base.Brain):
 
     """Returns which distance sensors and camera detect obstacles"""
     def detectObstacles(self):
-        obstacle_right = self.distance_sensors[1] < 0.25
-        obstacle_left = self.distance_sensors[0] < 0.25
+        obstacle_right = self.distance_sensors[1].distance < 0.25
+        obstacle_left = self.distance_sensors[0].distance < 0.25
         obstacle_front = False; 
         return obstacle_left, obstacle_right, obstacle_front
 
