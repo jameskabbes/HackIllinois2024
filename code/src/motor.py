@@ -19,7 +19,7 @@ class Motor:
     control1: LED
     control2: LED
 
-    MAX_SPEED: float = 10.0
+    MAX_SPEED: float = 1.0
 
     def __init__(self, config: Config):
 
