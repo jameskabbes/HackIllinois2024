@@ -35,11 +35,10 @@ def move_in_square():
                 led1.on()
                 temp_start_time = time.time()
                 handle_obstacle(distance1, distance2)
-                start_time -= (time.time() - temp_start_time)
+                start_time += (time.time() - temp_start_time)
             
             led1.off()
-            left_motor.forward(1)
-            right_motor.forward(1*MOTOR_OFFSET)
+            motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
             sleep(DT)
         
         led2.on()
