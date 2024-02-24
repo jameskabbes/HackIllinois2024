@@ -56,7 +56,6 @@ if __name__ == '__main__':
         print(i)
         for _ in range(5):
             motor_rotations.move_forward(left_motor, right_motor, i, s1=1, s2=1*MOTOR_OFFSET)
-            time.sleep(dt)
 
         motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
         # motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
