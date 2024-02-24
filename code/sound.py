@@ -9,12 +9,18 @@ import time
 from video import detectPersonInFrame, ModelType
 from src import distance_sensor as distance_sensor_module
 import cv2
+from src import camera as camera_module
 
 
 MOTOR_OFFSET = 0.65
 
+def capture_camera_frame(camera):
+    camera.capture()
+    return camera.image_array
+
 if __name__ == '__main__':
-   
+    
+
     left_motor = motor_module.Motor({
         "pins": {
             "speed": 13,
@@ -53,7 +59,11 @@ if __name__ == '__main__':
         "pin": 21
     })
 
-    def sound(right, left):
+    camera = camera_module.Camera({
+        "show_preview": False
+    })
+
+    def sound(right, left, frame):
         target_dir = 0
         if ((right == 1 or right == 0) and (left == 1 or left == 0)):
             print("out of bounds")
@@ -94,6 +104,10 @@ if __name__ == '__main__':
             else:
                 motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
 
-    sound(distance_sensor1.distance, distance_sensor2.distance)
+    while True:
+        image_array = capture_camera_frame(camera)
+        sound(distance_sensor1.distance, distance_sensor2.distance, image_array[:, :, :3])
+        sleep(2)  # Wait for 2 seconds before capturing the next frame
 
+ 
     
