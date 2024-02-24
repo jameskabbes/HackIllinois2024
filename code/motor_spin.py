@@ -20,7 +20,6 @@ if __name__ == '__main__':
         }
     })
 
-    speeds = list(np.linspace(0, 1, 11)) + list(np.linspace(0.9, 0, 10))
 
     dt = 0.25
     motor1.stop()
@@ -41,6 +40,7 @@ if __name__ == '__main__':
 
     motor1.forward(0.3)
     motor2.backward(0.3)
+    time.sleep(dt)
 
     for i in range(50):
         print('Slept total of {0} seconds'.format((i+1)*dt))

@@ -39,5 +39,5 @@ if __name__ == '__main__':
         motor2.backward(speed)
         time.sleep(dt)
 
-    motor1.stop()
-    motor2.stop()
+    # motor1.stop()
+    # motor2.stop()
