@@ -59,6 +59,6 @@ if __name__ == '__main__':
     led2.on()
     motor_rotations.move_forward(left_motor, right_motor, 5, s1=1, s2=1*MOTOR_OFFSET)
     time.sleep(dt)
-    motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=1*MOTOR_OFFSET)
+    motor_rotations.move_backward(left_motor, right_motor, 5, s1=1, s2=1*(MOTOR_OFFSET)*0.9)
     time.sleep(dt)
     led2.off()
