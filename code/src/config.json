@@ -1,0 +1,46 @@
+{
+  "brains": {
+    "base": {
+      "sample_hz": 10
+    },
+    "human_driver": {},
+    "autonomous": {}
+  },
+  "camera": {
+    "show_preview": false
+  },
+  "distance_sensors": [
+    {
+      "pins": {
+        "echo": 23,
+        "trigger": 24
+      }
+    },
+    {
+      "pins": {
+        "echo": 17,
+        "trigger": 27
+      }
+    }
+  ],
+  "leds": [{ "pin": 20 }, { "pin": 21 }],
+  "switches": [{ "pin": 2 }, { "pin": 3 }],
+  "vehicle": {
+    "motors": {
+      "left": {
+        "pins": {
+          "speed": 13,
+          "control1": 5,
+          "control2": 6
+        }
+      },
+      "right": {
+        "pins": {
+          "speed": 12,
+          "control1": 7,
+          "control2": 8
+        }
+      }
+    }
+  }
+}

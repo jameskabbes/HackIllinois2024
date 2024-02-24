@@ -1,0 +1,6 @@
+.DS_Store
+Data/
+__pycache__/
+*.dylib
+yolov8n.pt
+venv
