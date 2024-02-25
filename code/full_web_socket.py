@@ -57,6 +57,7 @@ def move_in_square():
                 start_time+=2
 
             person_detected = 0
+            pic_time += 1
         
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
@@ -99,6 +100,7 @@ def move_in_line():
                 start_time+=2
 
             person_detected = 0
+            pic_time += 1
         
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
@@ -143,6 +145,7 @@ def move_in_triangle():
                 start_time+=2
 
             person_detected = 0
+            pic_time += 1
         
         led2.on()
         motor_rotations.rotate_cw_120_deg(left_motor, right_motor)
