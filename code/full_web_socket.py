@@ -249,7 +249,8 @@ if __name__ == '__main__':
         print("Topic:", msg.topic)
         print("Payload:", msg.payload.decode())
 
-        js = json.dumps(msg.payload.decode())
+        js = msg.payload.decode()
+        print(type(js))
 
         arg = js["shape"]
 
