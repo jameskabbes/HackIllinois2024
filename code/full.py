@@ -248,10 +248,30 @@ if __name__ == '__main__':
 
         sleep(2)
     
+    led1.on()
+    led2.on()
+    sleep(2)
+
+    sleep(1)
+
+    match num_b2_press%3:
+        case 0:
+            led1.off()
+            led2.off()
+        case 1:
+            led1.off()
+            led2.on()
+        case 2:
+            led1.on()
+            led2.off()
+
     temp_start = time.time()
 
     while time.time()-temp_start < 5:
         sleep(1)
+    
+    led1.off()
+    led2.off()
 
     start_time = time.time()
 
