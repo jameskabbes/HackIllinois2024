@@ -242,7 +242,7 @@ if __name__ == '__main__':
     num_b2_press = 0
 
     while not switch1.is_pressed:
-        print("sleeping")
+        print("sleeping", num_b2_press)
         if switch2.is_pressed:
             num_b2_press+=1
 
