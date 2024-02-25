@@ -1,7 +1,6 @@
 import time
 
-NINETY_DEGREE_TIME = 0.39
-NINETY_DEGREE_TIME = 0.35
+NINETY_DEGREE_TIME = 0.30
 DT = 0.5
 
 def rotate_ccw_90_deg(m1, m2):
