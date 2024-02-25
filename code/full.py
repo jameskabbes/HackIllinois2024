@@ -15,7 +15,8 @@ from src import camera as camera_module
 
 MOTOR_OFFSET = 1
 DT = 0.25
-DISTANCE_RANGE = 0.2
+DISTANCE_RANGE = 0.5
+SQUARE_SIZE = 5
 
 #first we need to start the timer at the start of the program
 #the normal behaviour is that the robot will move forward for 10 seconds and then take a 90 degree turn and it will keep doing this so it moves in a square
@@ -28,7 +29,7 @@ DISTANCE_RANGE = 0.2
 def move_in_square():
     global start_time
     while True:
-        while time.time() - start_time < 10:
+        while time.time() - start_time < SQUARE_SIZE:
 
             distance1 = distance_sensor1.distance
             distance2 = distance_sensor2.distance
