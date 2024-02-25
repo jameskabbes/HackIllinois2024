@@ -45,7 +45,6 @@ def move_in_square():
             sleep(DT)
         
         led2.on()
-        stop()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
         sleep(2)
