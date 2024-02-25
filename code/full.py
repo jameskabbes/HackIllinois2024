@@ -11,6 +11,7 @@ from video import detectPersonInFrame, ModelType
 from src import distance_sensor as distance_sensor_module
 import cv2
 from src import camera as camera_module
+from src import switch as switch_module
 
 
 MOTOR_OFFSET = 1
@@ -135,6 +136,19 @@ if __name__ == '__main__':
             "trigger": 27
         }
     })
+
+    switch1 = switch_module.Switch({
+        "pin": 2
+    })
+
+    while not switch1.is_pressed:
+        print("sleeping")
+        sleep(2)
     
+    temp_start = time.time()
+
+    while time.time()-temp_start < 5:
+        sleep(1)
+
     start_time = time.time()
     move_in_square()
