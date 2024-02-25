@@ -45,9 +45,11 @@ def move_in_square():
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
             sleep(DT)
         
+            temp_start_time = time.time()
             camera.capture()
             image_array = camera.image_array
             person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+            start_time += (time.time() - temp_start_time)
 
             if person_detected == 1:
                 print("sees person forward")
