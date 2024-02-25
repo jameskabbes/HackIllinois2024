@@ -69,20 +69,21 @@ def handle_obstacle(distance1, distance2):
     if person_detected:
         # led1.on()
         led2.on()
-        time.sleep(3)
+        time.sleep(1)
         if distance1 == priority_distance:
-
-            motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
             #time.sleep(3)
             motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
-            motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
+            motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
+            
+            
         else:
-            motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
             #time.sleep(3)
             motor_rotations.move_backward(left_motor, right_motor, 1, s1=1, s2=1*MOTOR_OFFSET)
-            motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
+            motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
+           
+            
         
         # led1.off()
         led2.off()
