@@ -66,6 +66,47 @@ def move_in_square():
         sleep(0.5)
         led2.off()
 
+def move_in_line():
+    global start_time
+    while True:
+        while time.time() - start_time < SQUARE_SIZE:
+
+            distance1 = distance_sensor1.distance
+            distance2 = distance_sensor2.distance
+
+            if 0 < distance1 < DISTANCE_RANGE or 0 < distance2 < DISTANCE_RANGE:
+                led1.on() #detected something and now we will turn towards it
+                temp_start_time = time.time()
+                handle_obstacle(distance1, distance2)
+                start_time += (time.time() - temp_start_time)
+            
+            led1.off()
+            motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
+            sleep(DT)
+        
+            temp_start_time = time.time()
+            camera.capture()
+            image_array = camera.image_array
+            person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+            start_time += (time.time() - temp_start_time)
+
+            if person_detected == 1:
+                print("sees person forward")
+                led1.on()
+                led2.on()
+                sleep(5)
+                led1.off()
+                led2.off()
+                start_time+=5
+        
+        led2.on()
+        motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
+        sleep(0.5)
+        motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
+        start_time = time.time()
+        sleep(0.5)
+        led2.off()
+
 
 def stop():
     left_motor.stop()
