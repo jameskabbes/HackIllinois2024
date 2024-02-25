@@ -22,6 +22,7 @@ SQUARE_SIZE = 8
 
 def move_in_square():
     global start_time
+    pic_time = 0
     while True:
         while time.time() - start_time < SQUARE_SIZE:
 
@@ -40,18 +41,20 @@ def move_in_square():
         
             temp_start_time = time.time()
             camera.capture()
-            image_array = camera.image_array
-            person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
-            start_time += (time.time() - temp_start_time)
+            if pic_time%4 == 0:
+                image_array = camera.image_array
+                person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+                start_time += (time.time() - temp_start_time)
 
             if person_detected == 1:
-                print("sees person forward")
                 led1.on()
                 led2.on()
                 time.sleep(2)
                 led1.off()
                 led2.off()
-                start_time+=5
+                start_time+=2
+
+            person_detected = 0
         
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
@@ -61,6 +64,7 @@ def move_in_square():
 
 def move_in_line():
     global start_time
+    pic_time = 0
     while True:
         while time.time() - start_time < SQUARE_SIZE:
 
@@ -79,18 +83,20 @@ def move_in_line():
         
             temp_start_time = time.time()
             camera.capture()
-            image_array = camera.image_array
-            person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
-            start_time += (time.time() - temp_start_time)
+            if pic_time%4 == 0:
+                image_array = camera.image_array
+                person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+                start_time += (time.time() - temp_start_time)
 
             if person_detected == 1:
-                print("sees person forward")
                 led1.on()
                 led2.on()
-                time.sleep(5)
+                time.sleep(2)
                 led1.off()
                 led2.off()
-                start_time+=5
+                start_time+=2
+
+            person_detected = 0
         
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
@@ -102,6 +108,7 @@ def move_in_line():
 
 def move_in_triangle():
     global start_time
+    pic_time = 0
     while True:
         while time.time() - start_time < SQUARE_SIZE:
 
@@ -120,18 +127,20 @@ def move_in_triangle():
         
             temp_start_time = time.time()
             camera.capture()
-            image_array = camera.image_array
-            person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
-            start_time += (time.time() - temp_start_time)
+            if pic_time%4 == 0:
+                image_array = camera.image_array
+                person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+                start_time += (time.time() - temp_start_time)
 
             if person_detected == 1:
-                print("sees person forward")
                 led1.on()
                 led2.on()
-                time.sleep(5)
+                time.sleep(2)
                 led1.off()
                 led2.off()
-                start_time+=5
+                start_time+=2
+
+            person_detected = 0
         
         led2.on()
         motor_rotations.rotate_cw_120_deg(left_motor, right_motor)
