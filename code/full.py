@@ -252,8 +252,6 @@ if __name__ == '__main__':
     led2.on()
     sleep(2)
 
-    sleep(1)
-
     match num_b2_press%3:
         case 0:
             led1.off()
