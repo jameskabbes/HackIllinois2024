@@ -57,7 +57,6 @@ def stop():
     right_motor.stop()
 
 def handle_obstacle(distance1, distance2):
-    stop()
     priority_distance = min(distance1, distance2)
     if distance1 == priority_distance:
         motor_rotations.rotate_ccw_90_deg(left_motor, right_motor)
