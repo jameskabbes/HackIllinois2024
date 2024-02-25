@@ -1,18 +1,11 @@
-from functools import total_ordering
-from turtle import left, right
-from gpiozero import Motor, DistanceSensor
-from time import sleep
-import numpy as np
 from src import motor as motor_module
 from src import motor_rotations
 from src import led as led_module
 import time
 from video import detectPersonInFrame, ModelType
 from src import distance_sensor as distance_sensor_module
-import cv2
 from src import camera as camera_module
 from src import switch as switch_module
-
 
 MOTOR_OFFSET = 1
 DT = 0.1
@@ -43,7 +36,7 @@ def move_in_square():
             
             led1.off()
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
-            sleep(DT)
+            time.sleep(DT)
         
             temp_start_time = time.time()
             camera.capture()
@@ -55,7 +48,7 @@ def move_in_square():
                 print("sees person forward")
                 led1.on()
                 led2.on()
-                sleep(5)
+                time.sleep(2)
                 led1.off()
                 led2.off()
                 start_time+=5
@@ -63,7 +56,7 @@ def move_in_square():
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
-        sleep(0.5)
+        time.sleep(0.5)
         led2.off()
 
 def move_in_line():
@@ -82,7 +75,7 @@ def move_in_line():
             
             led1.off()
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
-            sleep(DT)
+            time.sleep(DT)
         
             temp_start_time = time.time()
             camera.capture()
@@ -94,17 +87,17 @@ def move_in_line():
                 print("sees person forward")
                 led1.on()
                 led2.on()
-                sleep(5)
+                time.sleep(5)
                 led1.off()
                 led2.off()
                 start_time+=5
         
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
-        sleep(0.5)
+        time.sleep(0.5)
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
-        sleep(0.5)
+        time.sleep(0.5)
         led2.off()
 
 def move_in_triangle():
@@ -123,7 +116,7 @@ def move_in_triangle():
             
             led1.off()
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
-            sleep(DT)
+            time.sleep(DT)
         
             temp_start_time = time.time()
             camera.capture()
@@ -135,7 +128,7 @@ def move_in_triangle():
                 print("sees person forward")
                 led1.on()
                 led2.on()
-                sleep(5)
+                time.sleep(5)
                 led1.off()
                 led2.off()
                 start_time+=5
@@ -143,7 +136,7 @@ def move_in_triangle():
         led2.on()
         motor_rotations.rotate_cw_120_deg(left_motor, right_motor)
         start_time = time.time()
-        sleep(0.5)
+        time.sleep(0.5)
         led2.off()
 
 
@@ -246,11 +239,11 @@ if __name__ == '__main__':
         if switch2.is_pressed:
             num_b2_press+=1
 
-        sleep(2)
+        time.sleep(2)
     
     led1.on()
     led2.on()
-    sleep(2)
+    time.sleep(2)
 
     match num_b2_press%3:
         case 0:
@@ -266,7 +259,7 @@ if __name__ == '__main__':
     temp_start = time.time()
 
     while time.time()-temp_start < 5:
-        sleep(1)
+        time.sleep(1)
     
     led1.off()
     led2.off()
