@@ -249,10 +249,10 @@ if __name__ == '__main__':
         print("Topic:", msg.topic)
         print("Payload:", msg.payload.decode())
 
-        js = msg.payload.decode()
-        print(type(js))
+        js = msg.payload.decode().split("\"")
 
-        arg = js["shape"]
+        arg = js[3]
+        print("arg: ", arg)
 
         match arg:
             case "square":
