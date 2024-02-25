@@ -107,6 +107,45 @@ def move_in_line():
         sleep(0.5)
         led2.off()
 
+def move_in_triangle():
+    global start_time
+    while True:
+        while time.time() - start_time < SQUARE_SIZE:
+
+            distance1 = distance_sensor1.distance
+            distance2 = distance_sensor2.distance
+
+            if 0 < distance1 < DISTANCE_RANGE or 0 < distance2 < DISTANCE_RANGE:
+                led1.on() #detected something and now we will turn towards it
+                temp_start_time = time.time()
+                handle_obstacle(distance1, distance2)
+                start_time += (time.time() - temp_start_time)
+            
+            led1.off()
+            motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
+            sleep(DT)
+        
+            temp_start_time = time.time()
+            camera.capture()
+            image_array = camera.image_array
+            person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+            start_time += (time.time() - temp_start_time)
+
+            if person_detected == 1:
+                print("sees person forward")
+                led1.on()
+                led2.on()
+                sleep(5)
+                led1.off()
+                led2.off()
+                start_time+=5
+        
+        led2.on()
+        motor_rotations.rotate_cw_120_deg(left_motor, right_motor)
+        start_time = time.time()
+        sleep(0.5)
+        led2.off()
+
 
 def stop():
     left_motor.stop()
@@ -196,8 +235,17 @@ if __name__ == '__main__':
         "pin": 2
     })
 
+    switch2 = switch_module.Switch({
+        "pin": 3
+    })
+
+    num_b2_press = 0
+
     while not switch1.is_pressed:
         print("sleeping")
+        if switch2.is_pressed:
+            num_b2_press+=1
+
         sleep(2)
     
     temp_start = time.time()
@@ -206,4 +254,11 @@ if __name__ == '__main__':
         sleep(1)
 
     start_time = time.time()
-    move_in_square()
+
+    match num_b2_press%3:
+        case 0:
+            move_in_square()
+        case 1:
+            move_in_line()
+        case 2:
+            move_in_triangle()
