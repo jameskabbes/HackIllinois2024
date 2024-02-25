@@ -7,6 +7,7 @@ from src import distance_sensor as distance_sensor_module
 from src import camera as camera_module
 from src import switch as switch_module
 import paho.mqtt.client as mqtt
+import json
 
 MOTOR_OFFSET = 1
 DT = 0.1
@@ -248,7 +249,7 @@ if __name__ == '__main__':
         print("Topic:", msg.topic)
         print("Payload:", msg.payload.decode())
 
-        js = msg.payload.decode()
+        js = json.dumps(msg.payload.decode())
 
         arg = js["shape"]
 
