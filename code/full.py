@@ -45,6 +45,19 @@ def move_in_square():
             motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
             sleep(DT)
         
+            camera.capture()
+            image_array = camera.image_array
+            person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
+
+            if person_detected == 1:
+                # motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
+                led1.on()
+                led2.on()
+                sleep(5)
+                led1.off()
+                led2.off()
+                start_time+=5
+        
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
