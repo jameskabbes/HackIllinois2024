@@ -50,7 +50,7 @@ def move_in_square():
             person_detected = detectPersonInFrame(image_array[::-1, :, :3], ModelType.YOLOv8n)
 
             if person_detected == 1:
-                # motor_rotations.move_forward(left_motor, right_motor, 1, s1=1, s2=1)
+                print("sees person forward")
                 led1.on()
                 led2.on()
                 sleep(5)
