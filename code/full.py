@@ -15,7 +15,7 @@ from src import switch as switch_module
 
 
 MOTOR_OFFSET = 1
-DT = 0.25
+DT = 0.1
 DISTANCE_RANGE = 0.5
 SQUARE_SIZE = 8
 
@@ -48,7 +48,7 @@ def move_in_square():
         led2.on()
         motor_rotations.rotate_cw_90_deg(left_motor, right_motor)
         start_time = time.time()
-        sleep(2)
+        sleep(0.5)
         led2.off()
 
 
