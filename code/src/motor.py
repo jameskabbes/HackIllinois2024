@@ -3,6 +3,9 @@ from gpiozero import PWMLED
 from src.led import LED
 from src.wheel_encoder import WheelEncoder
 
+Direction = bool
+Speed = float
+
 
 class PinsConfig(TypedDict):
     speed: int

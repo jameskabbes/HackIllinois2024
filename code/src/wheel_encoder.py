@@ -3,6 +3,8 @@ import RPi.GPIO as GPIO
 from gpiozero import Button
 import math
 
+Ticks = int
+
 
 class Config(TypedDict):
     pin: int
@@ -10,7 +12,7 @@ class Config(TypedDict):
 
 class WheelEncoder(Button):
 
-    ticks: int
+    ticks: Ticks
     pin: int
 
     TICKS_PER_REVOLUTION: int = 192
