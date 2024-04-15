@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
+from gpiozero import Button
 
 
-class WheelEncoder:
+class WheelEncoder(Button):
 
     ticks: int
     pin: int
@@ -10,13 +11,12 @@ class WheelEncoder:
 
     def __init__(self, pin: int):
 
+        super().__init__(pin=pin, pull_up=True)
+        self.when_pressed = self.increment_ticks
         self.ticks = 0
         self.pin = pin
-        GPIO.setup(self.pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        GPIO.add_event_detect(self.pin, GPIO.RISING,
-                              callback=self.rising_callback)
 
-    def rising_callback(self):
+    def increment_ticks(self):
         self.ticks += 1
 
     @property
