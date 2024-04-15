@@ -1,32 +1,24 @@
-import RPi.GPIO as gpio
+from src import wheel_encoder
 import time
-
-ENCODER_PIN = 6
-tick_count = 0
-
-
-def encoder_callback(channel):
-    global tick_count
-    tick_count += 1
-
-
-def setup_gpio():
-    gpio.setmode(gpio.BCM)
-    gpio.setup(ENCODER_PIN, gpio.IN, pull_up_down=gpio.PUD_UP)
+import RPi.GPIO as GPIO
 
 
 if __name__ == '__main__':
-    setup_gpio()
+
+    total_seconds = 60
+    start_time = time.time()
+
+    left_encoder = wheel_encoder.WheelEncoder(14)
+    right_encoder = wheel_encoder.WheelEncoder(4)
 
     try:
-        while True:
-
-            print(gpio.input(ENCODER_PIN))
+        while time.time() - start_time > total_seconds:
+            start_loop_time = time.time()
+            print('Left Ticks: ', left_encoder.ticks)
+            print('Right Ticks: ', right_encoder.ticks)
             time.sleep(1)
 
-            print(f'Tick count: {tick_count}')
-
     except KeyboardInterrupt:
-        print('done')
+        pass
     finally:
-        gpio.cleanup()
+        GPIO.cleanup()

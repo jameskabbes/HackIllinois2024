@@ -1,12 +1,14 @@
 from typing import TypedDict
 from gpiozero import PWMLED
 from src.led import LED
+from src.wheel_encoder import WheelEncoder
 
 
 class PinsConfig(TypedDict):
     speed: int
     control1: int
     control2: int
+    encoder: int
 
 
 class Config(TypedDict):
@@ -26,6 +28,7 @@ class Motor:
         self.pwm = PWMLED(config['pins']['speed'])
         self.control1 = LED({'pin': config['pins']['control1']})
         self.control2 = LED({'pin': config['pins']['control2']})
+        self.encoder = WheelEncoder(config['pins']['encoder'])
 
     def stop(self) -> None:
         """Stop the motor"""

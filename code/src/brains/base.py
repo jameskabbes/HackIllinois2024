@@ -1,6 +1,7 @@
 from typing import TypedDict
 from .. import vehicle as vehicle_module, camera as camera_module, distance_sensor as distance_sensor_module, led as led_module, switch as switch_module
 import time
+import RPi.GPIO as GPIO
 
 
 class Config(TypedDict):
@@ -45,14 +46,20 @@ class Brain:
     def run(self):
         """The main loop of the Brain class. While running, and the switch is one, gather data from sensors and perform brain logic"""
 
-        while self.running:
-            start_loop_time = time.time()
+        try:
+            while self.running:
+                start_loop_time = time.time()
 
-            self.camera.capture()
-            self.logic()
+                self.camera.capture()
+                self.logic()
 
-            # ensure that the loop is running at the correct max frequency
-            time.sleep(max(0, 1/self.sample_hz -
-                       (time.time() - start_loop_time)))
+                # ensure that the loop is running at the correct max frequency
+                time.sleep(max(0, 1/self.sample_hz -
+                               (time.time() - start_loop_time)))
 
-            self.loop_counter += 1
+                self.loop_counter += 1
+
+        except KeyboardInterrupt:
+            pass
+        finally:
+            GPIO.cleanup()
