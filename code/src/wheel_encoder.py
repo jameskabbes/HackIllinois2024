@@ -1,6 +1,11 @@
+from typing import TypedDict
 import RPi.GPIO as GPIO
 from gpiozero import Button
 import math
+
+
+class Config(TypedDict):
+    pin: int
 
 
 class WheelEncoder(Button):
@@ -11,9 +16,9 @@ class WheelEncoder(Button):
     TICKS_PER_REVOLUTION: int = 192
     WHEEL_RADIUS: float = 25.0  # mm
 
-    def __init__(self, pin: int):
+    def __init__(self, config: Config):
 
-        super().__init__(pin=pin, pull_up=True)
+        super().__init__(pin=config['pin'], pull_up=True)
         self.when_pressed = self.increment_ticks
         self.ticks = 0
 

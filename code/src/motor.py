@@ -28,7 +28,7 @@ class Motor:
         self.pwm = PWMLED(config['pins']['speed'])
         self.control1 = LED({'pin': config['pins']['control1']})
         self.control2 = LED({'pin': config['pins']['control2']})
-        self.encoder = WheelEncoder(config['pins']['encoder'])
+        self.encoder = WheelEncoder({'pin': config['pins']['encoder']})
 
     def stop(self) -> None:
         """Stop the motor"""
