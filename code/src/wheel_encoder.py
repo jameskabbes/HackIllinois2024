@@ -14,9 +14,9 @@ class WheelEncoder(Button):
         super().__init__(pin=pin, pull_up=True)
         self.when_pressed = self.increment_ticks
         self.ticks = 0
-        self.pin = pin
 
     def increment_ticks(self):
+        print('tick detected!')
         self.ticks += 1
 
     @property

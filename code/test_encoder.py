@@ -11,14 +11,6 @@ if __name__ == '__main__':
     left_encoder = wheel_encoder.WheelEncoder(14)
     right_encoder = wheel_encoder.WheelEncoder(4)
 
-    try:
-        while time.time() - start_time > total_seconds:
-            start_loop_time = time.time()
-            print('Left Ticks: ', left_encoder.ticks)
-            print('Right Ticks: ', right_encoder.ticks)
-            time.sleep(1)
-
-    except KeyboardInterrupt:
-        pass
-    finally:
-        GPIO.cleanup()
+    print(left_encoder.ticks, right_encoder.ticks)
+    time.sleep(10)
+    print(left_encoder.ticks, right_encoder.ticks)

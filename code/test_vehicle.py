@@ -6,18 +6,20 @@ if __name__ == '__main__':
     vehicle = vehicle_module.Vehicle(
         {
             "motors": {
-                "left": {
+                "right": {
                     "pins": {
                         "speed": 13,
                         "control1": 5,
-                        "control2": 6
+                        "control2": 6,
+                        'encoder': 14
                     }
                 },
-                "right": {
+                "left": {
                     "pins": {
                         "speed": 12,
                         "control1": 7,
-                        "control2": 8
+                        "control2": 8,
+                        'encoder': 4
                     }
                 }
             }

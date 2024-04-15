@@ -27,7 +27,7 @@
   "switches": [{ "pin": 2 }, { "pin": 3 }],
   "vehicle": {
     "motors": {
-      "left": {
+      "right": {
         "pins": {
           "speed": 13,
           "control1": 5,
@@ -35,7 +35,7 @@
           "encoder": 14
         }
       },
-      "right": {
+      "left": {
         "pins": {
           "speed": 12,
           "control1": 7,
