@@ -1,0 +1,7 @@
+test\_motor module
+==================
+
+.. automodule:: test_motor
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+test\_encoder module
+====================
+
+.. automodule:: test_encoder
+   :members:
+   :undoc-members:
+   :show-inheritance:

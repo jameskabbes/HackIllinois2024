@@ -1,0 +1,7 @@
+test\_switch module
+===================
+
+.. automodule:: test_switch
+   :members:
+   :undoc-members:
+   :show-inheritance:

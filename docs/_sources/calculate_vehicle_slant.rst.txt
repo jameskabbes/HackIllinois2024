@@ -1,0 +1,7 @@
+calculate\_vehicle\_slant module
+================================
+
+.. automodule:: calculate_vehicle_slant
+   :members:
+   :undoc-members:
+   :show-inheritance:
