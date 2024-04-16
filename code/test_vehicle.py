@@ -5,6 +5,7 @@ if __name__ == '__main__':
 
     vehicle = vehicle_module.Vehicle(
         {
+            "slant": 0.0,
             "motors": {
                 "right": {
                     "pins": {
