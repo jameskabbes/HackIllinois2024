@@ -83,7 +83,7 @@ class Vehicle:
         self.left_motor.encoder.ticks = 0
         self.right_motor.encoder.ticks = 0
 
-        self.drive_forward(1.0)
+        self._raw_motor_control(1.0, True, 1.0, True)
         time.sleep(10)
         self.stop()
         time.sleep(1)
