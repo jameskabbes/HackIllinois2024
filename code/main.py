@@ -2,6 +2,7 @@ from typing import TypedDict
 from src import params, vehicle as vehicle_module, camera as camera_module, distance_sensor as distance_sensor_module, led as led_module, switch as switch_module
 from src.brains import ModuleTypes as BrainModuleTypes, Types as BrainTypes
 import json
+from pathlib import Path
 
 
 class Config(TypedDict):
@@ -40,6 +41,10 @@ for d in switches_config:
 
 # Load Vehicle
 vehicle_config = config['vehicle']
+saved_slant_Path = Path('saved_slant.txt')
+if params.SAVED_SLANT_PATH.exists():
+    saved_slant = float(params.SAVED_SLANT_PATH.read_text())
+    vehicle_config['slant'] = saved_slant
 vehicle = vehicle_module.Vehicle(vehicle_config)
 
 # Load Brain

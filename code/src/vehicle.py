@@ -2,8 +2,9 @@ from typing import TypedDict
 from . import motor
 from . import wheel_encoder
 import numpy as np
+import time
 
-Heading = float  # in radians
+Slant = float
 
 
 class MotorsConfig(TypedDict):
@@ -13,6 +14,7 @@ class MotorsConfig(TypedDict):
 
 class Config(TypedDict):
     motors: MotorsConfig
+    slant: Slant
 
 
 class Vehicle:
@@ -21,66 +23,36 @@ class Vehicle:
     right_motor: motor.Motor
     mode: str | None
     current_speed: motor.Speed
-    current_heading: Heading
-    slant: float
-    heading_history: list[Heading, tuple[
-        wheel_encoder.Ticks, wheel_encoder.Ticks]]
-    MAX_LEN_HEADING_HISTORY: int = 20
-
-    FORWARD_HEADING = 0.0
-    PIVOT_LEFT_HEADING = np.pi / 2
-    PIVOT_RIGHT_HEADING = -np.pi / 2
-    BACKWARD_HEADING = np.pi
+    slant: Slant  # negative means it slants left, positive means it slants right
 
     def __init__(self, config: Config):
 
         self.left_motor = motor.Motor(config['motors']['left'])
         self.right_motor = motor.Motor(config['motors']['right'])
-        self.current_speed = 0.0
-        self.current_heading = 0.0
-
-        self.slant = 0.0  # negative means it slants left, positive means it slants right
-        self.heading_history = []
-
-    def drive(self):
-
-        self.calculate_slant()
-        pass
-
-    def calculate_slant(self):
-        """process the slant given the last N speed logs"""
-
-        if len(self.slant_history) > Vehicle.LENGTH_SLANT_HISTORY:
-            del self.slant_history[: len(
-                self.slant_history) - Vehicle.LENGTH_SLANT_HISTORY]
-
-        for i in range(len(self.slant_history) - 1):
-            pass
+        self.slant = config['slant']
 
     def stop(self) -> None:
         """stop both motors"""
         self.left_motor.stop()
         self.right_motor.stop()
 
-    def drive_forward(self, speed: float = 1.0) -> None:
+    def drive_forward(self, speed: motor.Speed = 1.0) -> None:
         """turn both motors forward at a given speed"""
-        self.mode = 'forward'
         self.drive(speed, True, speed, True)
 
-    def drive_backward(self, speed: float = 1.0) -> None:
+    def drive_backward(self, speed: motor.Speed = 1.0) -> None:
         """turn both motors backward at a given speed"""
-        self.mode = 'backward'
         self.drive(speed, False, speed, False)
 
-    def pivot_left(self, speed: float = 1.0) -> None:
+    def pivot_left(self, speed: motor.Speed = 1.0) -> None:
         """at the same speed, drive the left motor backward, and the right motor forward"""
         self.drive(speed, False, speed, True)
 
-    def pivot_right(self, speed: float = 1.0) -> None:
+    def pivot_right(self, speed: motor.Speed = 1.0) -> None:
         """at the same speed, drive the left motor forward, and the right motor backward"""
         self.drive(speed, True, speed, False)
 
-    def drive(self, left_speed: float, left_direction: bool, right_speed: float, right_direction: bool):
+    def drive(self, left_speed: motor.Speed, left_direction: motor.Direction, right_speed: motor.Speed, right_direction: motor.Direction):
 
         left_speed, right_speed = self._get_slant_corrected_speeds(
             left_speed, right_speed)
@@ -100,17 +72,55 @@ class Vehicle:
 
         return (left_speed, right_speed)
 
-    def _motor_control(self, speed: motor.Speed, heading: Heading) -> None:
+    def _raw_motor_control(self, left_speed: motor.Speed, left_direction: motor.Direction, right_speed: motor.Speed, right_direction: motor.Direction) -> None:
         """control the each motor's speed and direction without any slant correction"""
-
-        bounded_heading = heading % (2*np.pi)
-
-        # turning left
-        if heading < (np.pi/2):
 
         self.left_motor.drive(left_speed, left_direction)
         self.right_motor.drive(right_speed, right_direction)
 
-    def _raw_motor_control(self, left_speed: motor.Speed, left_direction: motor.Direction, right_speed: motor.Speed, right_direction: motor.Direction):
+    def test_run_calculate_slant(self):
 
-        pass
+        self.left_motor.encoder.ticks = 0
+        self.right_motor.encoder.ticks = 0
+
+        self.drive_forward(1.0)
+        time.sleep(10)
+        self.stop()
+        time.sleep(1)
+
+        print('---Left Motor---')
+        print('Ticks: ', self.left_motor.encoder.ticks)
+        print('Revolutions: ', wheel_encoder.WheelEncoder.revolutions_from_ticks(
+            self.left_motor.encoder.ticks))
+        print('Distance: ', wheel_encoder.WheelEncoder.distance_from_ticks(
+            self.left_motor.encoder.ticks))
+        print()
+
+        print('---Right Motor---')
+        print('Ticks: ', self.right_motor.encoder.ticks)
+        print('Revolutions: ', wheel_encoder.WheelEncoder.revolutions_from_ticks(
+            self.right_motor.encoder.ticks))
+        print('Distance: ', wheel_encoder.WheelEncoder.distance_from_ticks(
+            self.right_motor.encoder.ticks))
+        print()
+
+        self.slant = Vehicle.calculate_slant_from_ticks(
+            self.left_motor.encoder.ticks, self.right_motor.encoder.ticks)
+
+        print('Vehicle Slant: ', self.slant)
+
+    @staticmethod
+    def calculate_slant_from_ticks(left_motor_ticks: wheel_encoder.Ticks, right_motor_ticks: wheel_encoder.Ticks) -> Slant:
+        """Calculate the slant of the vehicle based on the difference in ticks between the left and right motors"""
+
+        # if the ticks are the same, the vehicle is not slanted
+        if left_motor_ticks == right_motor_ticks:
+            return 0.0
+
+        # if the left motor has more ticks than the right motor, the vehicle is slanted left
+        elif left_motor_ticks > right_motor_ticks:
+            return -1 * (1 - (right_motor_ticks / left_motor_ticks))
+
+        # if the right motor has more ticks than the left motor, the vehicle is slanted right
+        elif right_motor_ticks > left_motor_ticks:
+            return 1 * (1 - (left_motor_ticks / right_motor_ticks))

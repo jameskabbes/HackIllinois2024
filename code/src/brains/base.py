@@ -51,7 +51,6 @@ class Brain:
                 start_loop_time = time.time()
 
                 self.camera.capture()
-                self.vehicle.drive()
                 self.logic()
 
                 # ensure that the loop is running at the correct max frequency

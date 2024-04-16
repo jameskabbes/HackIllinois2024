@@ -26,6 +26,7 @@
   "leds": [{ "pin": 20 }, { "pin": 21 }],
   "switches": [{ "pin": 2 }, { "pin": 3 }],
   "vehicle": {
+    "slant": 0.0,
     "motors": {
       "right": {
         "pins": {
