@@ -21,7 +21,7 @@ John Deere | HackIllinois
 
 # Project Submissions
 
-View the prompts submissions at [HackIllinois 2024 Devpost](https://hackillinois-2024.devpost.com/submissions/search?utf8=✓&prize_filter%5Bprizes%5D%5B%5D=74007)
+View the submissions at [HackIllinois 2024 Devpost](https://hackillinois-2024.devpost.com/submissions/search?utf8=✓&prize_filter%5Bprizes%5D%5B%5D=74007)
 
 # Table of Contents
 
